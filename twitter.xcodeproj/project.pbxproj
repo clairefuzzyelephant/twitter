@@ -19,6 +19,7 @@
 		6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790820BCC04D0085BC29 /* TimelineViewController.m */; };
 		FE5D694922CAC3CF0024368C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5D694822CAC3CF0024368C /* User.m */; };
 		FE5D694C22CAC4920024368C /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5D694B22CAC4920024368C /* Tweet.m */; };
+		FE5D694F22CADFC00024368C /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5D694E22CADFC00024368C /* TweetCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		FE5D694822CAC3CF0024368C /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FE5D694A22CAC4920024368C /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		FE5D694B22CAC4920024368C /* Tweet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		FE5D694D22CADFC00024368C /* TweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		FE5D694E22CADFC00024368C /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				FE5D694822CAC3CF0024368C /* User.m */,
 				FE5D694A22CAC4920024368C /* Tweet.h */,
 				FE5D694B22CAC4920024368C /* Tweet.m */,
+				FE5D694D22CADFC00024368C /* TweetCell.h */,
+				FE5D694E22CADFC00024368C /* TweetCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5D694F22CADFC00024368C /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
 				FE5D694922CAC3CF0024368C /* User.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,

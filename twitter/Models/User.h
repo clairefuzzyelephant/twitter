@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 // TODO: Add properties
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *screenName;
+@property (strong, nonatomic) NSString *profPicURL;
 
 
 // TODO: Create initializer
