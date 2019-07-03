@@ -118,14 +118,50 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1U-t1-fcA">
+                                                    <rect key="frame" x="116" y="154" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Retweet" image="retweet-icon"/>
+                                                    <state key="selected" image="retweet-icon-green"/>
+                                                    <connections>
+                                                        <action selector="retweetTap:" destination="iTC-XB-qQJ" eventType="touchUpInside" id="edu-nR-YAA"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSz-AX-qaR">
+                                                    <rect key="frame" x="196" y="154" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Favorite" image="favor-icon"/>
+                                                    <state key="selected" image="favor-icon-red"/>
+                                                    <connections>
+                                                        <action selector="favoriteTap:" destination="iTC-XB-qQJ" eventType="touchUpInside" id="Z59-Z4-qX8"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6g-Cj-mxM">
+                                                    <rect key="frame" x="122" y="187" width="19" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nW-Ss-DZ9">
+                                                    <rect key="frame" x="200" y="186" width="22" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favoriteButton" destination="bSz-AX-qaR" id="jwU-3z-KCi"/>
+                                            <outlet property="fvCount" destination="6nW-Ss-DZ9" id="HrV-C6-M72"/>
                                             <outlet property="opHandle" destination="ZyF-Eh-NdN" id="xzj-0M-c8g"/>
                                             <outlet property="opName" destination="ea1-TY-i0O" id="gAj-8a-3rT"/>
                                             <outlet property="postDate" destination="aCc-Kg-252" id="7og-jC-QFP"/>
                                             <outlet property="postText" destination="T4h-Vd-LJe" id="ZIr-tJ-et7"/>
                                             <outlet property="profilePic" destination="sn0-AF-NuW" id="GZD-Nx-g5C"/>
+                                            <outlet property="retweetButton" destination="s1U-t1-fcA" id="6Pn-O6-8c8"/>
+                                            <outlet property="rtCount" destination="o6g-Cj-mxM" id="XeA-ty-kfO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -229,5 +265,9 @@
         <image name="TwitterLogoBlue" width="133.33332824707031" height="133.33332824707031"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="edit-icon" width="30" height="27"/>
+        <image name="favor-icon" width="30" height="30"/>
+        <image name="favor-icon-red" width="30" height="30"/>
+        <image name="retweet-icon" width="30" height="30"/>
+        <image name="retweet-icon-green" width="30" height="30"/>
     </resources>
 </document>
