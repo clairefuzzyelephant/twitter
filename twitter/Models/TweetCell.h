@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TweetCell : UITableViewCell
 
+//STEP TWO
+
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 
 @property (weak, nonatomic) IBOutlet UILabel *opName;
