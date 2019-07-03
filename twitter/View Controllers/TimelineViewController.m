@@ -17,36 +17,52 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tweetArray;
 
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
 @end
 
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    //refresh control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    //fetch tweets timeline
+    [self fetchTweets];
+    
+}
+
+-(void)fetchTweets {
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             self.tweetArray = tweets;
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
             /**
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
-                NSLog(@"%@", text);
-                
-            }
-            **/
+             for (NSDictionary *dictionary in tweets) {
+             NSString *text = dictionary[@"text"];
+             NSLog(@"%@", text);
+             
+             }
+             **/
             
             
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        
     }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,6 +70,10 @@
 }
 
 
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+
+}
 
 /*
 #pragma mark - Navigation
