@@ -14,7 +14,7 @@
 #import "ComposeViewController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-
+#import "DetailsViewController.h"
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
@@ -59,13 +59,18 @@
             //STEP 7
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
-            /**
-             for (NSDictionary *dictionary in tweets) {
-             NSString *text = dictionary[@"text"];
-             NSLog(@"%@", text);
-             
-             }
-             **/
+
+//             for (NSDictionary *dictionary in tweets) {
+//             NSString *text = dictionary[@"retweeted_status"];
+//             NSLog(@"%@", text);
+//
+//             }
+//            for (Tweet *twt in tweets){
+//                if (twt.retweetedByUser == nil){
+//                    NSLog(@"sad");
+//                }
+//                NSLog(@"%@", twt.retweetedByUser);
+//            }
             
             
         } else {
@@ -83,7 +88,7 @@
 
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-    
+    [self fetchTweets];
 
 }
 
@@ -119,6 +124,8 @@
     NSString *userName = tweet.user.screenName;
     cell.opHandle.text = [@"@" stringByAppendingString:userName];
     cell.postText.text = tweet.text;
+    
+    
     cell.postDate.text = tweet.createdAtString;
     
     NSString *url = tweet.user.profPicURL;
@@ -156,12 +163,27 @@
  UINavigationController *navigationController = [segue destinationViewController];
  ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
  composeController.delegate = self;
+     
+//     NSLog(@"HI");
+//
+//
+//     UITableViewCell *tappedCell = sender;
+//     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+//     Tweet *twt = self.tweetArray[indexPath.row];
+//     DetailsViewController *dvController = [segue destinationViewController];
+//     dvController.tweet = twt;
+//     NSLog(@"SET TWEET");
  }
 
 
 
 - (void)didTweet:(nonnull Tweet *)tweet {
 
+    [self fetchTweets];
+}
+
+
+- (void)didRetweet:(nonnull TweetCell *)sender {
     [self fetchTweets];
 }
 

@@ -12,6 +12,7 @@
 #import "APIManager.h"
 #import "UIImageView+AFNetworking.h"
 
+
 @implementation TweetCell
 
 
@@ -63,6 +64,8 @@
                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
             }
         }];
+        
+                        
     }
     else{
         //retweeting
@@ -84,8 +87,6 @@
 }
 
 - (IBAction)favoriteTap:(id)sender {
-    
-
     if (self.favoriteButton.selected){
         //unfavoriting
         self.tweet.favorited = NO;
