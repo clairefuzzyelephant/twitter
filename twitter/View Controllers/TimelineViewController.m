@@ -116,7 +116,8 @@
     
     cell.rtCount.text = [NSString stringWithFormat:@"%i", cell.tweet.retweetCount];
     cell.opName.text = tweet.user.name;
-    cell.opHandle.text = tweet.user.screenName;
+    NSString *userName = tweet.user.screenName;
+    cell.opHandle.text = [@"@" stringByAppendingString:userName];
     cell.postText.text = tweet.text;
     cell.postDate.text = tweet.createdAtString;
     
