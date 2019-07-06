@@ -160,19 +160,22 @@
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- UINavigationController *navigationController = [segue destinationViewController];
- ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
- composeController.delegate = self;
-     
-//     NSLog(@"HI");
-//
-//
-//     UITableViewCell *tappedCell = sender;
-//     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-//     Tweet *twt = self.tweetArray[indexPath.row];
-//     DetailsViewController *dvController = [segue destinationViewController];
-//     dvController.tweet = twt;
-//     NSLog(@"SET TWEET");
+     NSLog(@"%@", [segue identifier]);
+     if ([[segue identifier] isEqualToString:@"composing"]){
+         UINavigationController *navigationController = [segue destinationViewController];
+         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+         composeController.delegate = self;
+     }
+     else{
+         
+     TweetCell *tappedCell = sender;
+         NSLog(@"%@", tappedCell.tweet.text);
+         Tweet *twt = tappedCell.tweet;
+         UINavigationController *navController = [segue destinationViewController];
+     DetailsViewController *dvController = (DetailsViewController*)navController.topViewController;
+     dvController.tweet = twt;
+     NSLog(@"SET TWEET");
+     }
  }
 
 
@@ -182,10 +185,6 @@
     [self fetchTweets];
 }
 
-
-- (void)didRetweet:(nonnull TweetCell *)sender {
-    [self fetchTweets];
-}
 
 
 @end

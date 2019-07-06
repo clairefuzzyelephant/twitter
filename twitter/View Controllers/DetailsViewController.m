@@ -10,8 +10,13 @@
 #import "TimelineViewController.h"
 #import "Tweet.h"
 #import "TweetCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *tweetText;
+@property (weak, nonatomic) IBOutlet UIImageView *proPic;
+
 
 @end
 
@@ -20,6 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@", self.tweet.text);
+    
+    self.tweetText.text = self.tweet.text;
+    
+    NSString *url = self.tweet.user.profPicURL;
+    NSURL *picURL = [NSURL URLWithString:url];
+    //NSURLRequest *request = [NSURLRequest requestWithURL:picURL];
+    [self.proPic setImageWithURL:picURL];
+    
+    
 }
 
 /*
